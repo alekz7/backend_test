@@ -9,11 +9,14 @@ app.use(express.json());
 //routes
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
-db.connect(() => {
-  //app
+
+async function startServer() {
+  await db.connect();
   app.listen(3000, () => {
     console.log("servidor en puerto 3000");
   });
-});
+}
+
+startServer();
 
 module.exports = app;
