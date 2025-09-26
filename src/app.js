@@ -1,7 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const db = require("../src/database/database");
-require("dotenv").config();
 
 //middleware
 app.use(express.json());
