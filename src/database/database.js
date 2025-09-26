@@ -6,17 +6,15 @@ const client = new MongoClient(uri, {
 });
 let mongodb;
 
-function connect(callback) {
-  client.connect((err) => {
-    // perform actions on the collection object
-    // client.close();
-    mongodb = client;
-    callback();
-  });
+async function connect() {
+  await client.connect();
+  mongodb = client;
 }
+
 function get() {
   return mongodb;
 }
+
 function close() {
   mongodb.close();
 }
